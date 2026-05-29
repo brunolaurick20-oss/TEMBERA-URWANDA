@@ -9,9 +9,7 @@ import south from "../Views/Southern.vue"
 import east from "../Views/Eastern.vue"
 import west from "../Views/Western.vue"
 import kigali from "../Views/Kigali.vue"
-import Kigali from "../Views/Kigali.vue"
 import contact from "../Views/Contact.vue"
-import Services from "../Views/Services.vue";
 const routes=[
     {
         path:"/",
@@ -24,54 +22,54 @@ const routes=[
         component:about
     },
       {
-path:"/Services",
+path:"/services",
 name:"Services",
-component:Services
+component:services
 
     },
 
 {
-  path:"/Photos",
+  path:"/photos",
   name:"Photos",
   component:photos  
 },
 {
-    path:"/Videos",
+    path:"/videos",
     name:"videos",
     component:videos
 
 },
 {
-    path:"/North",
+    path:"/north",
     name:"North",
     component:north
 },
 
 {
-    path:"/East",
+    path:"/east",
     name:"East",
     component:east
 },
 
 {
-    path:"/South",
+    path:"/south",
     name:"South",
     component:south
 },
 
 {
-    path:"/West",
+    path:"/west",
     name:"Western",
     component:west
 },
 {
-    path:"/Kigali",
+    path:"/kigali",
     name:"Kigali",
-    component:Kigali
+    component:kigali
 
 },
 {
-    path:"/Contact",
+    path:"/contact",
     name:"Contact",
     component:contact
 }
