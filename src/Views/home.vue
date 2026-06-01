@@ -1,89 +1,89 @@
-<script setup>
-const homeHero = new URL('../Assets/wp2246267-rwanda-wallpapers.jpg', import.meta.url).href;
-const gorillasImage = new URL('../Assets/wp2246268-rwanda-wallpapers.jpg', import.meta.url).href;
-const nyungweImage = new URL('../Assets/wp2246292-rwanda-wallpapers.jpg', import.meta.url).href;
-const akageraImage = new URL('../Assets/wp2246293-rwanda-wallpapers.jpg', import.meta.url).href;
-const volcanoImage = new URL('../Assets/wp2246267-rwanda-wallpapers.jpg', import.meta.url).href;
+﻿<script setup>
+import { computed } from 'vue'
+import { languageStore, translations } from '../i18n.js'
+const slideA = new URL('../Assets/wp2246268-rwanda-wallpapers.jpg', import.meta.url).href;
+const slideB = new URL('../Assets/wp2246292-rwanda-wallpapers.jpg', import.meta.url).href;
+const slideC = new URL('../Assets/wp2246293-rwanda-wallpapers.jpg', import.meta.url).href;
+const slideD = new URL('../Assets/wp2246267-rwanda-wallpapers.jpg', import.meta.url).href;
+const lang = computed(() => translations[languageStore.current])
 </script>
 <template>
-  <!-- Hero section -->
-  <section class="relative min-h-[90vh] bg-cover bg-center bg-no-repeat text-white flex items-center" :style="{ backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${homeHero})` }">
-    <div class="max-w-6xl mx-auto px-6 py-20 text-center md:text-left">
-      <p class="text-sm uppercase tracking-[0.35em] text-green-200 mb-4">Explore Rwanda</p>
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight">Adventure, Wildlife, and Culture in Every Corner</h1>
-      <p class="mt-6 max-w-2xl text-lg text-green-100">Plan your Rwanda getaway with gorilla trekking, lush national parks, and unforgettable scenic views across the land of a thousand hills.</p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-        <router-link to="/photos" class="rounded-full bg-yellow-400 px-8 py-3 text-green-900 font-semibold shadow-lg hover:bg-yellow-300 transition">View Gallery</router-link>
-        <router-link to="/contact" class="rounded-full border border-white/50 px-8 py-3 text-white hover:bg-white/10 transition">Contact Us</router-link>
+  <section class="relative min-h-[90vh] overflow-hidden text-white">
+    <div class="absolute inset-0 hero-carousel">
+      <div class="hero-slide" :style="{ backgroundImage: `url(${slideA})` }"></div>
+      <div class="hero-slide" :style="{ backgroundImage: `url(${slideB})` }"></div>
+      <div class="hero-slide" :style="{ backgroundImage: `url(${slideC})` }"></div>
+      <div class="hero-slide" :style="{ backgroundImage: `url(${slideD})` }"></div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/85"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col justify-center min-h-[90vh]">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-[0.35em] text-green-200 mb-4">{{ lang.home.heroSmall }}</p>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight">{{ lang.home.heroTitle }}</h1>
+        <p class="mt-6 text-lg text-green-100 leading-relaxed">{{ lang.home.heroText }}</p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <router-link to="/photos" class="rounded-full bg-yellow-400 px-8 py-3 text-green-900 font-semibold shadow-lg hover:bg-yellow-300 transition">View Gallery</router-link>
+          <router-link to="/contact" class="rounded-full border border-white/40 px-8 py-3 text-white hover:bg-white/10 transition">Contact Us</router-link>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured experiences -->
   <section class="py-16 bg-slate-50 text-slate-900">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-sm uppercase tracking-[0.35em] text-green-600">Featured Experiences</p>
-        <h2 class="text-4xl font-semibold mt-3">What makes Rwanda unforgettable</h2>
+        <p class="text-sm uppercase tracking-[0.35em] text-green-600">{{ lang.home.featuredTitle }}</p>
+        <h2 class="text-4xl font-semibold mt-3">{{ lang.home.featuredSubtitle }}</h2>
       </div>
 
       <div class="grid gap-8 md:grid-cols-3">
-        <article class="rounded-3xl overflow-hidden shadow-2xl bg-white hover:-translate-y-2 transition">
-          <img loading="lazy" :src="gorillasImage" alt="Mountain gorillas" class="h-72 w-full object-cover" />
+        <router-link to="/north" class="feature-card rounded-3xl overflow-hidden bg-white shadow-lg cursor-pointer block no-underline hover:shadow-xl transition">
+          <img loading="lazy" :src="slideA" alt="Mountain gorillas" class="h-72 w-full object-cover" />
           <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-3">Gorilla Safaris</h3>
-            <p class="text-slate-600">Track mountain gorillas in Volcanoes National Park and witness one of the world's most powerful wildlife encounters.</p>
+            <h3 class="text-2xl font-semibold mb-3">{{ lang.home.card1.title }}</h3>
+            <p class="text-slate-600">{{ lang.home.card1.text }}</p>
           </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden shadow-2xl bg-white hover:-translate-y-2 transition">
-          <img loading="lazy" :src="nyungweImage" alt="Nyungwe rainforest" class="h-72 w-full object-cover" />
+        </router-link>
+        <router-link to="/south" class="feature-card rounded-3xl overflow-hidden bg-white shadow-lg cursor-pointer block no-underline hover:shadow-xl transition">
+          <img loading="lazy" :src="slideB" alt="Rainforest walks" class="h-72 w-full object-cover" />
           <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-3">Rainforest Trails</h3>
-            <p class="text-slate-600">Hike through ancient rainforest paths and discover waterfalls, canopy walks, and rare primates.</p>
+            <h3 class="text-2xl font-semibold mb-3">{{ lang.home.card2.title }}</h3>
+            <p class="text-slate-600">{{ lang.home.card2.text }}</p>
           </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden shadow-2xl bg-white hover:-translate-y-2 transition">
-          <img loading="lazy" :src="akageraImage" alt="Akagera park" class="h-72 w-full object-cover" />
+        </router-link>
+        <router-link to="/east" class="feature-card rounded-3xl overflow-hidden bg-white shadow-lg cursor-pointer block no-underline hover:shadow-xl transition">
+          <img loading="lazy" :src="slideC" alt="Lake safari" class="h-72 w-full object-cover" />
           <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-3">Savanna Safari</h3>
-            <p class="text-slate-600">Explore Rwanda's eastern wilderness with game drives, lakeside views, and abundant birdlife.</p>
+            <h3 class="text-2xl font-semibold mb-3">{{ lang.home.card3.title }}</h3>
+            <p class="text-slate-600">{{ lang.home.card3.text }}</p>
           </div>
-        </article>
+        </router-link>
       </div>
     </div>
   </section>
 
-  <!-- National parks preview -->
   <section class="py-16 bg-white text-slate-900">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-sm uppercase tracking-[0.35em] text-green-600">Destinations</p>
-        <h2 class="text-4xl font-semibold mt-3">Top national parks to explore</h2>
+        <p class="text-sm uppercase tracking-[0.35em] text-green-600">{{ lang.home.supportTitle }}</p>
+        <h2 class="text-4xl font-semibold mt-3">Travel support for every part of your journey</h2>
       </div>
+
       <div class="grid gap-8 md:grid-cols-3">
-        <div class="rounded-3xl overflow-hidden shadow-xl bg-slate-50 hover:shadow-2xl transition">
-          <img :src="volcanoImage" alt="Volcanoes National Park" class="h-64 w-full object-cover" />
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-2">Volcanoes NP</h3>
-            <p class="text-slate-600">Home of mountain gorillas and misty volcanic peaks.</p>
-          </div>
+        <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+          <h3 class="text-2xl font-semibold mb-3">{{ lang.home.support1.title }}</h3>
+          <p class="text-slate-600">{{ lang.home.support1.text }}</p>
         </div>
-        <div class="rounded-3xl overflow-hidden shadow-xl bg-slate-50 hover:shadow-2xl transition">
-          <img :src="nyungweImage" alt="Nyungwe Forest" class="h-64 w-full object-cover" />
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-2">Nyungwe Forest</h3>
-            <p class="text-slate-600">Lush rainforest hikes and a thrilling canopy walk.</p>
-          </div>
+        <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+          <h3 class="text-2xl font-semibold mb-3">{{ lang.home.support2.title }}</h3>
+          <p class="text-slate-600">{{ lang.home.support2.text }}</p>
         </div>
-        <div class="rounded-3xl overflow-hidden shadow-xl bg-slate-50 hover:shadow-2xl transition">
-          <img :src="akageraImage" alt="Akagera National Park" class="h-64 w-full object-cover" />
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-2">Akagera NP</h3>
-            <p class="text-slate-600">Big-game safaris, wetlands, and stunning sunsets.</p>
-          </div>
+        <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+          <h3 class="text-2xl font-semibold mb-3">{{ lang.home.support3.title }}</h3>
+          <p class="text-slate-600">{{ lang.home.support3.text }}</p>
         </div>
       </div>
     </div>
   </section>
 </template>
-

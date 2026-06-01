@@ -9,20 +9,28 @@ const servicesHero = new URL('../Assets/wp2246292-rwanda-wallpapers.jpg', import
         </div>
     </section>
 
-    <section class="py-12 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6 grid gap-8 md:grid-cols-3">
-            <div class="p-6 bg-white rounded-2xl shadow">
-                <h3 class="font-semibold text-xl mb-2">Gorilla Trekking</h3>
-                <p class="text-slate-600">Expert guides and safe, responsible tracking experiences.</p>
+    <section class="py-16 bg-white text-slate-900">
+        <div class="max-w-6xl mx-auto px-6 grid gap-8 md:grid-cols-3">
+            <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+                <h3 class="font-semibold text-2xl mb-3">Gorilla Permits & Trekking</h3>
+                <p class="text-slate-600">We secure permits, arrange transport, and guide you through Volcanoes National Park.</p>
             </div>
-            <div class="p-6 bg-white rounded-2xl shadow">
-                <h3 class="font-semibold text-xl mb-2">Safari & Wildlife</h3>
-                <p class="text-slate-600">Game drives in Akagera and birding tours across the country.</p>
+            <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+                <h3 class="font-semibold text-2xl mb-3">Safari Planning</h3>
+                <p class="text-slate-600">Enjoy Akagera wildlife safaris, boat trips, and birding adventures.</p>
             </div>
-            <div class="p-6 bg-white rounded-2xl shadow">
-                <h3 class="font-semibold text-xl mb-2">Custom Itineraries</h3>
-                <p class="text-slate-600">Tailored trips to match your interests and schedule.</p>
+            <div class="feature-card rounded-3xl bg-slate-50 p-8 shadow-lg">
+                <h3 class="font-semibold text-2xl mb-3">Cultural Travel</h3>
+                <p class="text-slate-600">Visit Kigali museums, local markets, and community tours with expert guides.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 text-slate-900">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-semibold">Ready to book your next Rwanda adventure?</h2>
+            <p class="mt-4 text-lg text-slate-600">Talk to us and we will build a custom plan that fits your travel style and dates.</p>
+            <router-link to="/contact" class="mt-8 inline-block rounded-full bg-green-800 px-10 py-3 text-white text-base font-semibold hover:bg-green-700 transition">Get in Touch</router-link>
         </div>
     </section>
 </template>
