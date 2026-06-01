@@ -50,7 +50,7 @@
         </div>
          <!-- place for Copyright-->
           <div class="border-t border-green-600 mt-8 pt-4 text-sm text-green">
-            <p class="text-center"> ©2025 Visit Rwanda.All rights reserved </p>
+            <p class="text-center"> ©2025 done by Hirwa Bruno Laurick L3DODB </p>
 
           </div>
     </footer>
